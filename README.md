@@ -3,9 +3,7 @@
 ## First Stable Release
 
 - Version: `v1.0.0`
-- Planned date: `2026-04-24`
-- Release notes: _TBD_
-- Migration notes: _TBD_
+- Url: [first release page](https://github.com/mathijs-follon/ismatec-ipc-pump-controller/releases/tag/v1.0.0)
 
 Rust-based controller for an Ismatec pump with:
 - a desktop GUI (`eframe/egui`) for interactive operation,
