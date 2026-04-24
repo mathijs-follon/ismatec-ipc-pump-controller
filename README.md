@@ -5,6 +5,20 @@
 - Version: `v1.0.0`
 - Url: [first release page](https://github.com/mathijs-follon/ismatec-ipc-pump-controller/releases/tag/v1.0.0)
 
+## Documentation
+
+- Datasheet: [`docs/datasheet.pdf`](docs/datasheet.pdf)
+
+### GUI screenshots
+
+Connection page:
+
+![Connection page](docs/connection-page.png)
+
+Manual control page:
+
+![Manual control page](docs/manual-control-page.png)
+
 Rust-based controller for an Ismatec pump with:
 - a desktop GUI (`eframe/egui`) for interactive operation,
 - a headless CLI mode for running executable recipes,
