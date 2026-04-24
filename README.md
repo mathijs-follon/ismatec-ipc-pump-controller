@@ -73,17 +73,18 @@ cargo run -- recipe.json
 
 
 ### Run from release
+Download the latest release [here](https://github.com/mathijs-follon/ismatec-ipc-pump-controller/releases/tag/v1.0.0).
 
 Linux:
 
 ```bash
-./ipc_pump recipe.json
+./ipc_pump-linux-x86_64 recipe.json
 ```
 
 Windows:
 
 ```bash
-ipc_pump.exe recipe.json
+ipc_pump-windows-x86_64.exe recipe.json
 ```
 
 
@@ -100,16 +101,16 @@ The GUI has six main views: `Connection`, `Manual`, `Cycled`, `Measurement`, `Re
 
 Use this page to establish communication and set calibration-sensitive parameters.
 
-- Set `Port` and pump `Address` (`1..=8`)
+- Set `Port` and pump `Address` (`1..=8`) (normally the system will select the correct port for you and use `1` as the default port)
 - `Connect` / `Disconnect`
-- Set `Tube ID (mm)`
-- Set `Calibrated max flow (ml/min)`
+- Set `Tube ID (mm)` (only needed for plotting theoretical volume displacement)
+- Set `Calibrated max flow (ml/min)` (You may leave this on default if you do not understand what it stands for)
 
 Recommended first-time sequence:
 1. Enter serial port and address.
 2. Connect.
 3. Confirm no errors in status.
-4. Set tube diameter and calibrated max flow.
+4. Optionally: set tube diameter and calibrated max flow.
 
 ### 2) Manual
 
@@ -119,8 +120,6 @@ Direct pump actuation controls:
 - Increment/decrement speed by configurable step
 - Set exact speed in ml/min
 - Adjust backsteps
-
-Safety note: `Stop` remains available even when other commands are pending.
 
 ### 3) Cycled
 
@@ -174,10 +173,10 @@ Use this as the standard workflow for repeatable runs.
 
 1. **Prepare hardware**
    - Connect the pump over serial.
-   - Confirm device path (`/dev/ttyUSB*` or `/dev/ttyACM*` on Linux).
+   - Confirm device path (example: `/dev/ttyUSB*`, `/dev/ttyACM*` on Linux; `COM3`, `COM6`, ... on Windows ).
 
 2. **Open GUI and connect**
-   - Start app: `cargo run`
+   - Start app: `cargo run` or use the executable from the [release](https://github.com/mathijs-follon/ismatec-ipc-pump-controller/releases/tag/v1.0.0)
    - Go to `Connection`, set port/address, click `Connect`.
 
 3. **Calibrate and base settings**
@@ -200,11 +199,11 @@ Use this as the standard workflow for repeatable runs.
 7. **Execute**
    - GUI execution: Start cycle program from `Cycled`.
    - Automated/headless execution: set `recipe_kind: "executable"` and run:
-     `cargo run -- your_recipe.json`
+     `cargo run -- your_recipe.json` / `./your-systems-binary your_recipe.json`
 
 8. **Collect outputs**
    - Export CSV and/or SVG from GUI, or let headless mode export at completion.
-   - Store outputs in your configured `data_folder`.
+   - Store outputs in your configured `data_folder`. (`.` saves data in the relative root folder)
 
 9. **Review and iterate**
    - Check flow behavior in plot and CSV.
