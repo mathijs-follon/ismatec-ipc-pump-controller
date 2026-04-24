@@ -7,7 +7,7 @@
 
 ## Documentation
 
-- Datasheet: [`docs/datasheet.pdf`](docs/datasheet.pdf)
+- Pump Datasheet Reference: [`docs/datasheet.pdf`](docs/datasheet.pdf)
 
 ### GUI screenshots
 
